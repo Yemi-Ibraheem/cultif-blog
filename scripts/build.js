@@ -11,6 +11,7 @@ const site = {
   mainUrl: "https://www.cultif.com",
   description: "Food culture, meal planning, creator guides, and global recipes from Cultif.",
   logo: "https://www.cultif.com/assets/Black-kDyR76cE.png",
+  favicon: "https://www.cultif.com/favicon.ico.png",
 };
 
 function ensureDir(dir) {
@@ -165,6 +166,8 @@ function pageShell({ title, description, image, canonical, body, extraHead = "",
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${escapeHtml(title)}</title>
   <meta name="description" content="${escapeHtml(description)}">
+  <link rel="icon" type="image/png" href="${site.favicon}">
+  <link rel="shortcut icon" href="${site.favicon}">
   <link rel="canonical" href="${escapeHtml(canonical)}">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="${escapeHtml(site.name)}">
