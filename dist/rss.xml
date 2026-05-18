@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+  <title>Cultif Journal</title>
+  <link>https://blog.cultif.com</link>
+  <description>Food culture, meal planning, creator guides, and global recipes from Cultif.</description>
+  <item>
+    <title>Jollof Rice Is More Than a Recipe</title>
+    <link>https://blog.cultif.com/posts/jollof-rice-cultural-guide/</link>
+    <guid>https://blog.cultif.com/posts/jollof-rice-cultural-guide/</guid>
+    <pubDate>Wed, 29 Apr 2026 12:00:00 GMT</pubDate>
+    <description>A cultural guide to West African jollof rice, the regional styles behind it, and how to build a meal around it.</description>
+  </item>
+  <item>
+    <title>How to Meal Plan Without Eating the Same Thing All Week</title>
+    <link>https://blog.cultif.com/posts/meal-planning-with-culture/</link>
+    <guid>https://blog.cultif.com/posts/meal-planning-with-culture/</guid>
+    <pubDate>Wed, 22 Apr 2026 12:00:00 GMT</pubDate>
+    <description>Use cultural themes to make weekly meal planning more varied, more useful, and much less repetitive.</description>
+  </item>
+  <item>
+    <title>The Best Creator Recipes Teach Context</title>
+    <link>https://blog.cultif.com/posts/creator-recipes-that-teach/</link>
+    <guid>https://blog.cultif.com/posts/creator-recipes-that-teach/</guid>
+    <pubDate>Wed, 15 Apr 2026 12:00:00 GMT</pubDate>
+    <description>Why food creators should share technique, origin, substitutions, and serving ideas alongside the recipe itself.</description>
+  </item>
+  <item>
+    <title>Balanced Plates Do Not Have to Be Bland</title>
+    <link>https://blog.cultif.com/posts/balanced-plates-global-flavour/</link>
+    <guid>https://blog.cultif.com/posts/balanced-plates-global-flavour/</guid>
+    <pubDate>Wed, 08 Apr 2026 12:00:00 GMT</pubDate>
+    <description>A practical way to build nutritious meals using global flavors, smart portions, and satisfying textures.</description>
+  </item>
+</channel>
+</rss>

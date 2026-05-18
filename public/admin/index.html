@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cultif CMS</title>
+  <link rel="stylesheet" href="./admin.css">
+  <script defer src="./admin.js"></script>
+</head>
+<body>
+  <header class="admin-topbar">
+    <a class="brand" href="/">
+      <img src="https://www.cultif.com/assets/Black-kDyR76cE.png" alt="Cultif">
+      <span>CMS</span>
+    </a>
+    <nav aria-label="Admin actions">
+      <a href="/" target="_blank" rel="noreferrer">View Blog</a>
+      <button id="newPostButton" type="button">New Post</button>
+      <button id="saveButton" class="primary" type="button">Save Post</button>
+    </nav>
+  </header>
+
+  <main class="admin-shell">
+    <aside class="post-sidebar" aria-label="Blog posts">
+      <div class="sidebar-heading">
+        <div>
+          <p>Posts</p>
+          <h1>Manage Journal</h1>
+        </div>
+        <span id="postCount">0</span>
+      </div>
+      <label class="search-field">
+        <span>Search</span>
+        <input id="searchInput" type="search" placeholder="Title, category, tag">
+      </label>
+      <div id="postList" class="post-list"></div>
+    </aside>
+
+    <section class="editor-panel" aria-label="Post editor">
+      <div class="editor-header">
+        <div>
+          <p id="editorState">Draft</p>
+          <h2 id="editorTitle">Create a post</h2>
+        </div>
+        <div class="status-area">
+          <span id="saveStatus" role="status">Ready</span>
+          <button id="deleteButton" class="danger" type="button">Delete</button>
+        </div>
+      </div>
+
+      <form id="postForm">
+        <input id="originalSlug" type="hidden">
+
+        <div class="field-grid">
+          <label>
+            <span>Title</span>
+            <input id="title" name="title" required>
+          </label>
+          <label>
+            <span>Slug</span>
+            <input id="slug" name="slug" required>
+          </label>
+        </div>
+
+        <label>
+          <span>SEO description</span>
+          <textarea id="description" name="description" rows="3" maxlength="170" required></textarea>
+          <small id="descriptionCount">0/170</small>
+        </label>
+
+        <div class="field-grid four">
+          <label>
+            <span>Date</span>
+            <input id="date" name="date" type="date" required>
+          </label>
+          <label>
+            <span>Author</span>
+            <input id="author" name="author" value="Cultif">
+          </label>
+          <label>
+            <span>Category</span>
+            <input id="category" name="category" value="Culture guide">
+          </label>
+          <label class="toggle-field">
+            <input id="featured" name="featured" type="checkbox">
+            <span>Featured</span>
+          </label>
+        </div>
+
+        <label>
+          <span>Tags</span>
+          <input id="tags" name="tags" placeholder="food culture, meal planning, creators">
+        </label>
+
+        <div class="image-tools">
+          <label>
+            <span>Hero image URL</span>
+            <input id="image" name="image" required>
+          </label>
+          <label>
+            <span>Upload image</span>
+            <input id="imageUpload" type="file" accept="image/*">
+          </label>
+        </div>
+
+        <label>
+          <span>Image alt text</span>
+          <input id="imageAlt" name="imageAlt" required>
+        </label>
+
+        <div class="editor-tabs" role="tablist" aria-label="Editor mode">
+          <button class="active" type="button" data-tab="write">Write</button>
+          <button type="button" data-tab="preview">Preview</button>
+        </div>
+
+        <div id="writePanel">
+          <label>
+            <span>Markdown body</span>
+            <textarea id="body" name="body" class="body-editor" rows="18" required></textarea>
+          </label>
+        </div>
+
+        <article id="previewPanel" class="preview-panel" hidden></article>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

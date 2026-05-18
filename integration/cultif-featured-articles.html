@@ -1,0 +1,123 @@
+<style>
+  .cultif-blog-highlights {
+    background: #fffaf4;
+    color: #17130f;
+    padding: clamp(56px, 8vw, 112px) 5vw;
+  }
+  .cultif-blog-heading {
+    border-bottom: 1px solid #eaded1;
+    margin-bottom: 28px;
+  }
+  .cultif-blog-heading p {
+    color: #e85f22;
+    font-size: 12px;
+    font-weight: 850;
+    letter-spacing: .12em;
+    margin: 0 0 12px;
+    text-transform: uppercase;
+  }
+  .cultif-blog-heading h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(36px, 5vw, 76px);
+    line-height: 1;
+    margin: 0 0 22px;
+  }
+  .cultif-blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .cultif-blog-grid article {
+    background: #17130f;
+    min-height: 430px;
+    overflow: hidden;
+    position: relative;
+  }
+  .cultif-blog-grid a {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-end;
+    min-height: inherit;
+    padding: 28px;
+    position: relative;
+    text-decoration: none;
+  }
+  .cultif-blog-grid img {
+    height: 100%;
+    inset: 0;
+    object-fit: cover;
+    position: absolute;
+    transition: transform 450ms ease;
+    width: 100%;
+  }
+  .cultif-blog-grid article::after {
+    background: linear-gradient(0deg, rgba(23, 19, 15, .86), rgba(23, 19, 15, .1));
+    content: "";
+    inset: 0;
+    position: absolute;
+  }
+  .cultif-blog-grid span,
+  .cultif-blog-grid h3,
+  .cultif-blog-grid p {
+    position: relative;
+    z-index: 1;
+  }
+  .cultif-blog-grid span {
+    color: #f2bd54;
+    font-size: 12px;
+    font-weight: 850;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+  .cultif-blog-grid h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(26px, 2.8vw, 44px);
+    line-height: 1;
+    margin: 10px 0;
+  }
+  .cultif-blog-grid p {
+    color: rgba(255, 255, 255, .82);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .cultif-blog-grid article:hover img {
+    transform: scale(1.05);
+  }
+  @media (max-width: 860px) {
+    .cultif-blog-grid {
+      grid-template-columns: 1fr;
+    }
+    .cultif-blog-grid article {
+      min-height: 340px;
+    }
+  }
+</style>
+<section class="cultif-blog-highlights">
+  <div class="cultif-blog-heading">
+    <p>From the journal</p>
+    <h2>Food culture for your next meal plan</h2>
+  </div>
+  <div class="cultif-blog-grid" aria-live="polite"></div>
+</section>
+<script src="https://blog.cultif.com/featured.js" defer></script>
+<script>
+(() => {
+  const section = document.querySelector(".cultif-blog-highlights");
+  const grid = section.querySelector(".cultif-blog-grid");
+  function render(posts) {
+    grid.innerHTML = posts.slice(0, 3).map((post) => `
+      <article>
+        <a href="${post.canonical}">
+          <img src="${post.image}" alt="${post.imageAlt}" loading="lazy">
+          <span>${post.category}</span>
+          <h3>${post.title}</h3>
+          <p>${post.description}</p>
+        </a>
+      </article>
+    `).join("");
+  }
+  if (window.CultifFeaturedArticles) render(window.CultifFeaturedArticles);
+  window.addEventListener("cultif:featured-articles", (event) => render(event.detail));
+})();
+</script>

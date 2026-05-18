@@ -1,0 +1,14 @@
+{
+  "name": "cultif-blog",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SEO-ready static blog for Cultif.",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "dev": "node scripts/build.js --watch",
+    "admin": "node scripts/cms-server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
