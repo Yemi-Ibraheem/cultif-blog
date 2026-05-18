@@ -13,117 +13,174 @@
   <header class="admin-topbar">
     <a class="brand" href="/">
       <img src="https://www.cultif.com/assets/Black-kDyR76cE.png" alt="Cultif">
-      <span>CMS</span>
+      <span>Blog Studio</span>
     </a>
     <nav aria-label="Admin actions">
       <a href="/" target="_blank" rel="noreferrer">View Blog</a>
       <button id="newPostButton" type="button">New Post</button>
-      <button id="saveButton" class="primary" type="button">Save Post</button>
+      <button id="saveButton" class="primary" type="button">Save Changes</button>
     </nav>
   </header>
 
-  <main class="admin-shell">
-    <aside class="post-sidebar" aria-label="Blog posts">
-      <div class="sidebar-heading">
-        <div>
-          <p>Posts</p>
-          <h1>Manage Journal</h1>
-        </div>
-        <span id="postCount">0</span>
+  <main class="studio-shell">
+    <section class="studio-hero" aria-label="CMS overview">
+      <div>
+        <p class="eyebrow">Cultif CMS</p>
+        <h1>Manage every article on the Cultif Journal.</h1>
+        <p>Create posts, update SEO details, upload images, choose featured stories, and rebuild the public blog from one place.</p>
       </div>
-      <label class="search-field">
-        <span>Search</span>
-        <input id="searchInput" type="search" placeholder="Title, category, tag">
-      </label>
-      <div id="postList" class="post-list"></div>
-    </aside>
-
-    <section class="editor-panel" aria-label="Post editor">
-      <div class="editor-header">
-        <div>
-          <p id="editorState">Draft</p>
-          <h2 id="editorTitle">Create a post</h2>
-        </div>
-        <div class="status-area">
-          <span id="saveStatus" role="status">Ready</span>
-          <button id="deleteButton" class="danger" type="button">Delete</button>
-        </div>
+      <div class="metric-grid" aria-label="Blog metrics">
+        <article>
+          <span id="totalPosts">0</span>
+          <p>Total posts</p>
+        </article>
+        <article>
+          <span id="featuredPosts">0</span>
+          <p>Featured</p>
+        </article>
+        <article>
+          <span id="latestDate">-</span>
+          <p>Latest post</p>
+        </article>
       </div>
+    </section>
 
-      <form id="postForm">
-        <input id="originalSlug" type="hidden">
-
-        <div class="field-grid">
-          <label>
-            <span>Title</span>
-            <input id="title" name="title" required>
-          </label>
-          <label>
-            <span>Slug</span>
-            <input id="slug" name="slug" required>
-          </label>
+    <section class="workspace">
+      <aside class="post-sidebar" aria-label="Blog posts">
+        <div class="sidebar-heading">
+          <div>
+            <p>Content Library</p>
+            <h2>All Posts</h2>
+          </div>
+          <span id="postCount">0</span>
         </div>
 
-        <label>
-          <span>SEO description</span>
-          <textarea id="description" name="description" rows="3" maxlength="170" required></textarea>
-          <small id="descriptionCount">0/170</small>
+        <label class="search-field">
+          <span>Search posts</span>
+          <input id="searchInput" type="search" placeholder="Title, category, tag">
         </label>
 
-        <div class="field-grid four">
-          <label>
-            <span>Date</span>
-            <input id="date" name="date" type="date" required>
-          </label>
-          <label>
-            <span>Author</span>
-            <input id="author" name="author" value="Cultif">
-          </label>
-          <label>
-            <span>Category</span>
-            <input id="category" name="category" value="Culture guide">
-          </label>
-          <label class="toggle-field">
-            <input id="featured" name="featured" type="checkbox">
-            <span>Featured</span>
-          </label>
+        <div class="filter-tabs" aria-label="Post filters">
+          <button class="active" type="button" data-filter="all">All</button>
+          <button type="button" data-filter="featured">Featured</button>
+          <button type="button" data-filter="standard">Standard</button>
         </div>
 
-        <label>
-          <span>Tags</span>
-          <input id="tags" name="tags" placeholder="food culture, meal planning, creators">
-        </label>
+        <div id="postList" class="post-list"></div>
+      </aside>
 
-        <div class="image-tools">
-          <label>
-            <span>Hero image URL</span>
-            <input id="image" name="image" required>
-          </label>
-          <label>
-            <span>Upload image</span>
-            <input id="imageUpload" type="file" accept="image/*">
-          </label>
+      <section class="editor-panel" aria-label="Post editor">
+        <div class="editor-header">
+          <div>
+            <p id="editorState">Draft</p>
+            <h2 id="editorTitle">Create a post</h2>
+          </div>
+          <div class="status-area">
+            <span id="saveStatus" role="status">Ready</span>
+            <button id="deleteButton" class="danger" type="button">Delete</button>
+          </div>
         </div>
 
-        <label>
-          <span>Image alt text</span>
-          <input id="imageAlt" name="imageAlt" required>
-        </label>
+        <form id="postForm">
+          <input id="originalSlug" type="hidden">
 
-        <div class="editor-tabs" role="tablist" aria-label="Editor mode">
-          <button class="active" type="button" data-tab="write">Write</button>
-          <button type="button" data-tab="preview">Preview</button>
-        </div>
+          <section class="form-section">
+            <div class="section-title">
+              <p>Article</p>
+              <h3>Core details</h3>
+            </div>
+            <div class="field-grid">
+              <label>
+                <span>Title</span>
+                <input id="title" name="title" required>
+              </label>
+              <label>
+                <span>Slug</span>
+                <input id="slug" name="slug" required>
+              </label>
+            </div>
 
-        <div id="writePanel">
-          <label>
-            <span>Markdown body</span>
-            <textarea id="body" name="body" class="body-editor" rows="18" required></textarea>
-          </label>
-        </div>
+            <label>
+              <span>SEO description</span>
+              <textarea id="description" name="description" rows="3" maxlength="170" required></textarea>
+              <small id="descriptionCount">0/170</small>
+            </label>
 
-        <article id="previewPanel" class="preview-panel" hidden></article>
-      </form>
+            <div class="field-grid four">
+              <label>
+                <span>Date</span>
+                <input id="date" name="date" type="date" required>
+              </label>
+              <label>
+                <span>Author</span>
+                <input id="author" name="author" value="Cultif">
+              </label>
+              <label>
+                <span>Category</span>
+                <input id="category" name="category" value="Culture guide">
+              </label>
+              <label class="toggle-field">
+                <input id="featured" name="featured" type="checkbox">
+                <span>Featured</span>
+              </label>
+            </div>
+
+            <label>
+              <span>Tags</span>
+              <input id="tags" name="tags" placeholder="food culture, meal planning, creators">
+            </label>
+          </section>
+
+          <section class="form-section media-section">
+            <div class="section-title">
+              <p>Media</p>
+              <h3>Hero image</h3>
+            </div>
+            <div class="media-layout">
+              <figure class="image-preview">
+                <img id="imagePreview" alt="">
+                <figcaption id="imagePreviewCaption">No image selected</figcaption>
+              </figure>
+              <div class="media-fields">
+                <label>
+                  <span>Hero image URL</span>
+                  <input id="image" name="image" required>
+                </label>
+                <label>
+                  <span>Upload image</span>
+                  <input id="imageUpload" type="file" accept="image/*">
+                </label>
+                <label>
+                  <span>Image alt text</span>
+                  <input id="imageAlt" name="imageAlt" required>
+                </label>
+              </div>
+            </div>
+          </section>
+
+          <section class="form-section">
+            <div class="section-title editor-title-row">
+              <div>
+                <p>Body</p>
+                <h3>Write and preview</h3>
+              </div>
+              <div class="editor-tabs" role="tablist" aria-label="Editor mode">
+                <button class="active" type="button" data-tab="write">Write</button>
+                <button type="button" data-tab="preview">Preview</button>
+              </div>
+            </div>
+
+            <div id="writePanel">
+              <label>
+                <span>Markdown body</span>
+                <textarea id="body" name="body" class="body-editor" rows="18" required></textarea>
+              </label>
+            </div>
+
+            <article id="previewPanel" class="preview-panel" hidden></article>
+          </section>
+        </form>
+      </section>
     </section>
   </main>
 </body>
