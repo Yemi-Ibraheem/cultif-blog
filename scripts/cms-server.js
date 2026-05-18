@@ -230,7 +230,11 @@ async function route(req, res) {
     }
 
     let pathname = decodeURIComponent(url.pathname);
-    if (pathname === "/admin") pathname = "/admin/";
+    if (pathname === "/admin") {
+      res.writeHead(302, { Location: "/admin/" });
+      res.end();
+      return;
+    }
     if (pathname === "/admin/") pathname = "/admin/index.html";
     if (pathname === "/") pathname = "/index.html";
     const filePath = path.normalize(path.join(distDir, pathname));
